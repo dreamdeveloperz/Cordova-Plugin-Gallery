@@ -40,8 +40,8 @@
        
 
       
-        <source-file src="src/android/libs/commons-codec-1.10.jar" target-dir="libs/" />
-        <source-file src="src/android/com/plugin/base64/Base64ImagePlugin.java" target-dir="src/com/plugin/base64/" />
+        <!--<source-file src="src/android/libs/commons-codec-1.10.jar" target-dir="libs/" />-->
+        <source-file src="src/android/com/plugin/gallery/ChooseGalleryImage.java" target-dir="src/com/plugin/gallery/" />
 
     </platform>
 
