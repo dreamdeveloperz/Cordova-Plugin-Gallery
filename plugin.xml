@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        id="com.plugin.gallery.ChooseGalleryImage"
+        version="1.0.0">
+
+    <name>ChooseGalleryImage</name>
+    <author>Madan Kumar</author>
+
+    <description>
+        This plugin allows your application to select  image from gallery on Android Devices.
+    </description>
+
+    <license>MIT</license>
+
+    <js-module src="www/ChooseGalleryImage.js" name="ChooseGalleryImage">
+        <clobbers target="ChooseGalleryImage" />
+    </js-module>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <!-- android -->
+    <platform name="android">
+        <framework src="com.android.support:support-v4:+" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="ChooseGalleryImage" >
+                <param name="android-package" value="com.plugin.gallery.ChooseGalleryImage"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+
+       
+
+      
+        <source-file src="src/android/libs/commons-codec-1.10.jar" target-dir="libs/" />
+        <source-file src="src/android/com/plugin/base64/Base64ImagePlugin.java" target-dir="src/com/plugin/base64/" />
+
+    </platform>
+
+    
+
+</plugin>
