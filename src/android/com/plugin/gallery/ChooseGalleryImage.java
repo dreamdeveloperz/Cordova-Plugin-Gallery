@@ -51,7 +51,7 @@ public class ChooseGalleryImage extends CordovaPlugin {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         this.callbackContext = callbackContext;
-        startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+        this.cordova.getActivity().startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
         return false;
     }
 
@@ -60,14 +60,14 @@ public class ChooseGalleryImage extends CordovaPlugin {
         super.onActivityResult(requestCode, resultCode, data);
         try {
             // When an Image is picked
-            if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK && null != data) {
+            if (requestCode == RESULT_LOAD_IMG && resultCode == Activity.RESULT_OK && null != data) {
                 // Get the Image from data
 
                 Uri selectedImage = data.getData();
                 String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
                 // Get the cursor
-                Cursor cursor = getContentResolver().query(selectedImage,
+                Cursor cursor = Activity.getContentResolver().query(selectedImage,
                         filePathColumn, null, null, null);
                 // Move to first row
                 cursor.moveToFirst();
