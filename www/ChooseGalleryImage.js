@@ -1,15 +1,15 @@
-var ChooseImageGallery = function() {
+var ChooseGalleryImage = function() {
 };
-ChooseImageGallery.prototype.chooseImage=function(successCallback,errorCallback,base64String, params){
+ChooseGalleryImage.prototype.chooseImage=function(successCallback,errorCallback,base64String, params){
   
-    cordova.exec(successCallback, errorCallback, "ChooseImageGallery", "ChooseImage", [base64String,params]);
+    cordova.exec(successCallback, errorCallback, "ChooseGalleryImage", "ChooseImage", [base64String,params]);
 };
 
 
 if(!window.plugins) {
 	window.plugins = {};
 }
-if (!window.plugins.ChooseImageGallery) {
-	window.plugins.ChooseImageGallery = new ChooseImageGallery();
+if (!window.plugins.ChooseGalleryImage) {
+	window.plugins.ChooseGalleryImage = new ChooseGalleryImage();
 }
 
