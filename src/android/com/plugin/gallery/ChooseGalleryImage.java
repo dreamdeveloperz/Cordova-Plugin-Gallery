@@ -52,6 +52,7 @@ public class ChooseGalleryImage extends CordovaPlugin {
         
         this.callbackContext = callbackContext;
         showFileChooser();
+         this.callbackContext.success("working");
         return true;
     }
 
