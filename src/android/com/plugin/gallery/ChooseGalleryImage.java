@@ -26,6 +26,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.content.ActivityNotFoundException;
 
 public class ChooseGalleryImage extends CordovaPlugin {
 
@@ -48,10 +49,9 @@ public class ChooseGalleryImage extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) {
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        
         this.callbackContext = callbackContext;
-        this.cordova.getActivity().startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+        showFileChooser();
         return true;
     }
 
@@ -93,6 +93,15 @@ public class ChooseGalleryImage extends CordovaPlugin {
 
         }
 
+    }
+    private void showFileChooser() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        try {
+            this.cordova.getActivity().startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+        } catch (ActivityNotFoundException e) {
+            // The reason for the existence of aFileChooser
+        }
     }
 
     @Override
