@@ -76,8 +76,9 @@ public class ChooseGalleryImage extends CordovaPlugin {
 //                imgDecodableString = cursor.getString(columnIndex);
 //
 //                cursor.close();
-                
-                this.callbackContext.success("path is ready");
+                JSONObject obj = new JSONObject();
+                obj.put("path", selectedImage.getPath());
+                this.callbackContext.success(obj);
 //                ImageView imgView = (ImageView) findViewById(R.id.imgView);
 //                // Set the Image in ImageView after decoding the String
 //                imgView.setImageBitmap(BitmapFactory
