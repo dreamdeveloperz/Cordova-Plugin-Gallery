@@ -64,19 +64,19 @@ public class ChooseGalleryImage extends CordovaPlugin {
                 // Get the Image from data
 
                 Uri selectedImage = data.getData();
-                String[] filePathColumn = {MediaStore.Images.Media.DATA};
-
-                // Get the cursor
-                Cursor cursor = Activity.getContentResolver().query(selectedImage,
-                        filePathColumn, null, null, null);
-                // Move to first row
-                cursor.moveToFirst();
-
-                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                imgDecodableString = cursor.getString(columnIndex);
-
-                cursor.close();
-                this.callbackContext.success(imgDecodableString);
+//                String[] filePathColumn = {MediaStore.Images.Media.DATA};
+//
+//                // Get the cursor
+//                Cursor cursor = Activity.getContentResolver().query(selectedImage,
+//                        filePathColumn, null, null, null);
+//                // Move to first row
+//                cursor.moveToFirst();
+//
+//                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+//                imgDecodableString = cursor.getString(columnIndex);
+//
+//                cursor.close();
+                this.callbackContext.success(selectedImage);
 //                ImageView imgView = (ImageView) findViewById(R.id.imgView);
 //                // Set the Image in ImageView after decoding the String
 //                imgView.setImageBitmap(BitmapFactory
