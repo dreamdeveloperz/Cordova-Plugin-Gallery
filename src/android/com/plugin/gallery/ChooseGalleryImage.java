@@ -52,7 +52,7 @@ public class ChooseGalleryImage extends CordovaPlugin {
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         this.callbackContext = callbackContext;
         this.cordova.getActivity().startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
-        return false;
+        return true;
     }
 
     @Override
